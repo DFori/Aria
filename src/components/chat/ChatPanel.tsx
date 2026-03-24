@@ -15,8 +15,14 @@ interface ChatPanelProps {
 }
 
 export function ChatPanel({ user }: ChatPanelProps) {
-  const { messages, isLoading, pendingConfirmation, sendMessage, confirmAction, cancelAction } =
-    useChat();
+  const {
+    messages,
+    isLoading,
+    pendingConfirmation,
+    sendMessage,
+    confirmAction,
+    cancelAction,
+  } = useChat();
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom
@@ -46,7 +52,9 @@ export function ChatPanel({ user }: ChatPanelProps) {
             <p className="text-sm font-semibold text-slate-200">Aria</p>
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <p className="text-xs text-slate-500">AI Calendar Assistant · Active</p>
+              <p className="text-xs text-slate-500">
+                AI Calendar Assistant · Active
+              </p>
             </div>
           </div>
         </div>
@@ -75,7 +83,7 @@ export function ChatPanel({ user }: ChatPanelProps) {
                     <div className="mt-3 ml-10">
                       <ConfirmationCard
                         confirmation={pendingConfirmation}
-                        onConfirm={() => confirmAction(pendingConfirmation)}
+                        onConfirm={() => confirmAction()}
                         onCancel={cancelAction}
                       />
                     </div>
